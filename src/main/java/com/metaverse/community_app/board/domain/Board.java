@@ -1,5 +1,6 @@
 package com.metaverse.community_app.board.domain;
 
+import com.metaverse.community_app.board.dto.BoardRequestDto;
 import com.metaverse.community_app.common.domain.TimeStamped;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,4 +19,12 @@ public class Board extends TimeStamped {
 
     @Column(nullable = false)
     private String title;
+
+    public Board(BoardRequestDto boardRequestDto) {
+        this.title = boardRequestDto.getTitle();
+    }
+
+    public void update(BoardRequestDto boardRequestDto) {
+        this.title = boardRequestDto.getTitle();
+    }
 }
